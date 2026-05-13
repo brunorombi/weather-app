@@ -26,8 +26,13 @@ export default function initApp() {
       displayError("Your search should contain only letters");
       return;
     }
+    
+    const loader = document.querySelector(".loader");
+    loader.style.display = "block";
 
     const weather = await getWeather(searchValue);
+
+    loader.style.display = "none";
 
     if (weather) {
       displayWeather(weather);
