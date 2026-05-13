@@ -31,7 +31,7 @@ export default function initApp() {
 
     if (weather) {
       displayWeather(weather);
-      console.log(weather)
+      console.log(weather);
     } else {
       displayError(`Was not possible to find ${searchValue}`);
     }
@@ -59,14 +59,26 @@ function displayError(error) {
 async function displayWeather(weather) {
   document.querySelector("#content").style.display = "flex";
 
-  const icon = await import(`./assets/${weather.icon}.svg`)
+  const icon = await import(`./assets/${weather.icon}.svg`);
   const img = document.querySelector(".weather-icon");
-
   img.src = icon.default;
 
   document.querySelector(".city").textContent = weather.city;
-  document.querySelector(".temp").textContent = weather.temp;
-  // document.querySelector(".description").textContent = weather.description;
-  document.querySelector(".time").textContent = weather.time;
-  document.querySelector(".date").textContent = weather.date;
+  document.querySelector(".temp").textContent = `${weather.temp} °C`;
+  document.querySelector(".description").textContent = weather.description;
+  document.querySelector(".time").textContent = weather.time.slice(0, -3);
+  document.querySelector(".date");
+
+  const dateStr = weather.date;
+  const dateObj = new Date(`${dateStr}T00:00:00`);
+
+  const options = {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+
+  const date = dateObj.toLocaleDateString("en-US", options).replace(/,/g, '');
+  document.querySelector(".date").textContent = date;
 }

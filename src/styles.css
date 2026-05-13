@@ -95,7 +95,6 @@ form {
 
 #content {
   display: none;
-  /* display: flex; */
   flex-direction: column;
   align-items: center;
   text-align: center;
@@ -103,10 +102,20 @@ form {
   gap: 20px;
 }
 
+.city {
+  margin-bottom: 4px;
+}
+
 .weather {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 12px;
+}
+
+.weather-icon {
+  width: 70px;
+  margin-right: 5px;
 }
 
 .temp {
