@@ -16,22 +16,26 @@ const content = document.querySelector("#content");
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
+  errorMessage.classList.remove("active");
   errorMessage.textContent = "";
   const searchValue = input.value.trim();
 
   if (input.validity.valueMissing) {
-    errorMessage.textContent = "You must enter a city name";
+    displayError("You must enter a city name");
     return;
   }
-
+  
   if (!/[a-zA-Z]/.test(searchValue)) {
-    errorMessage.textContent = "Your search should contain only letters";
+    displayError("Your search should contain only letters");
     return;
   }
 
   const weather = await getWeather(searchValue);
+
   if(weather) {
     displayWeather(weather);
+  } else {
+    displayError(`Was not possible to find ${searchValue}`)
   }
 });
 
@@ -46,8 +50,10 @@ async function getWeather(value) {
   }
 }
 
-function displayError() {
-  errorMessage.textContent = "Was not possible to find this city";
+function displayError(error) {
+  errorMessage.textContent = "";
+  errorMessage.classList.add("active")
+  errorMessage.textContent = error;
 }
 
 function displayWeather(weather) {

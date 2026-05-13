@@ -1,3 +1,122 @@
-body {
-  background-color: rebeccapurple;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+#container {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+
+  padding: 40px 60px;
+
+  background: #bdc3c7; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #2c3e50, #bdc3c7);
+  background: linear-gradient(to bottom, #2c3e50, #bdc3c7);
+}
+
+.title {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 40px;
+}
+
+.search-group {
+  display: flex;
+  line-height: 28px;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+  max-width: 250px;
+}
+
+#search {
+  width: 100%;
+  height: 40px;
+  line-height: 28px;
+  padding: 0 1rem;
+  padding-left: 1rem;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  outline: none;
+  background-color: #f3f3f4;
+  color: #0d0c22;
+  transition: 0.3s ease;
+}
+
+#search::placeholder {
+  color: #9e9ea7;
+}
+
+#search:focus,
+#search:hover {
+  outline: none;
+  border-color: rgba(234, 76, 137, 0.4);
+  background-color: #fff;
+  box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
+}
+
+.search-btn {
+  border: none;
+  background-color: #f4f2f2;
+  margin-top: .1em;
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+}
+
+.search__icon {
+  height: 1.3em;
+  width: 1.3em;
+  fill: #b4b4b4;
+}
+
+.error.active {
+  margin-top: 10px;
+  background-color: #fce4e4;
+  border: 1px solid #fcc2c3; 
+  color: #cc0033;            
+  padding: 15px 20px;
+  border-radius: 4px;
+  font-family: Arial, sans-serif;
+  margin-bottom: 20px;
+}
+
+#content {
+  display: none;
+  /* display: flex; */
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 400px;
+  gap: 20px;
+}
+
+.weather {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.temp {
+  color: #003566;
+}
+
+#info {
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 10px 40px;
+  border-radius: 10px;
+  font-family: serif;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
